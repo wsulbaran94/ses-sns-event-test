@@ -17,8 +17,9 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true,
     "paths": {
-      "@utils/*":["utils/*"],
+      "@util":["utils/record.util.ts"],
       "@records/*": ["modules/records/*"]
     }
   }
