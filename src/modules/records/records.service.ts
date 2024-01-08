@@ -3,20 +3,21 @@ import {
   CreateRecordDto,
   CreateRecordResponseDto,
 } from '@records/dto/create-record.dto';
-
 import {
   dnsVerdictValidation,
   getMonth,
   isDeleyed,
   spamVirusVerdictValdiation,
   withoutDomain,
-} from '@utils/ultility';
+} from '../../utils/record.util';
 
 @Injectable()
 export class RecordsService {
   create(createRecordDto: CreateRecordDto) {
     const record: CreateRecordDto = createRecordDto;
-
+    if (!record.Records || !record.Records.length) {
+      throw 'Records can not be empty!!!';
+    }
     const newRecord: CreateRecordResponseDto[] = record.Records.map((value) => {
       const newItem: CreateRecordResponseDto = {
         spam: false,
@@ -48,13 +49,3 @@ export class RecordsService {
     return newRecord;
   }
 }
-
-// {
-//   "spam": "spamVerdic a boolean, PASS = true",
-//   "virus": "virusVerdic a boolean, PASS = true",
-//   "dns": "spfVerdic, dkimVeredict, dmarcVeredict a boolean, si todos PASS = true",
-//   "mes": "mail.timestamp a mes como texto",
-//   "retrasado": "processingTimeMillis a boolean, > 1000 = true"
-//   "emisor": "mail.source a usuario de correo sin @dominio.com",
-//   "receptor": ["mail.destination a usuarios de correo sin @domino.com"]
-// }

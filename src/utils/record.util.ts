@@ -2,11 +2,11 @@ import * as moment from 'moment';
 
 const PASS = 'PASS';
 
-export function spamVirusVerdictValdiation(status: string): boolean {
+function spamVirusVerdictValdiation(status: string): boolean {
   return status == PASS ? true : false;
 }
 
-export function dnsVerdictValidation({
+function dnsVerdictValidation({
   dkimVerdict,
   spamVerdict,
   dmarcVerdict,
@@ -20,15 +20,23 @@ export function dnsVerdictValidation({
   return resultValidation;
 }
 
-export function getMonth(date: string): string {
+function getMonth(date: string): string {
   return moment(date).format('MMMM');
 }
 
-export function isDeleyed(time: number): boolean {
+function isDeleyed(time: number): boolean {
   return time > 1000 ? true : false;
 }
 
-export function withoutDomain(email: string): string {
+function withoutDomain(email: string): string {
   const result: string[] = email.split('@');
   return result.length ? result[0] : email;
 }
+
+export {
+  spamVirusVerdictValdiation,
+  dnsVerdictValidation,
+  getMonth,
+  isDeleyed,
+  withoutDomain,
+};
