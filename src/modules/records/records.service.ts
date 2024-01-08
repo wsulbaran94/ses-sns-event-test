@@ -1,17 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import * as moment from 'moment';
-
 import {
   CreateRecordDto,
   CreateRecordResponseDto,
-} from './dto/create-record.dto';
+} from '@records/dto/create-record.dto';
+
 import {
   dnsVerdictValidation,
   getMonth,
   isDeleyed,
   spamVirusVerdictValdiation,
   withoutDomain,
-} from 'src/utils/ultility';
+} from '@utils/ultility';
 
 @Injectable()
 export class RecordsService {

@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
-import { RecordsService } from './records.service';
-import { RecordsController } from './records.controller';
-
+import { RecordsController } from '@records/records.controller';
+import { RecordsService } from '@records/records.service';
 @Module({
   controllers: [RecordsController],
   providers: [RecordsService],

@@ -1,10 +1,11 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { RecordsService } from './records.service';
+
+import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 import {
   CreateRecordDto,
   CreateRecordResponseDto,
-} from './dto/create-record.dto';
-import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
+} from '@records/dto/create-record.dto';
 
 @Controller('records')
 @ApiTags('Records')
